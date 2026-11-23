@@ -18,8 +18,10 @@ This site is meant to be used by CS 110 TAs to keep track of AI use in students.
     - [x] Add tables to database
 - Week of Nov 23-27:
     - [ ] Be thankful
-    - [ ] Create UI
-    - [ ] Create TA/professor registration/login
+    - [ ] Create UI (as Chrome Extension?)
+    - [ ] Add the manual stuff from the .sql scripts
+    - [ ] Manually insert the first staff member(s) (Jack and Lacy)
+    - [ ] Set up Google OAuth login (and see if it works for Jack/Lacy and denies any other email)
     - [ ] Create CRUD endpoints (most queries should filter by current semester)
         - [ ] Read all students
         - [ ] Read one student by full name
