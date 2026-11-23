@@ -3,11 +3,11 @@ This site is meant to be used by CS 110 TAs to keep track of AI use in students.
 
 
 ## ERD
-![ERD](cs452_final_project_architecture.png)
+![ERD](cs452_final_project_erd.webp)
 
 
 ## Technologies Architecture
-![Architecture Diagram](cs452_final_project_erd.png)
+![Architecture Diagram](cs452_final_project_architecture.png)
 - Are we worried about concurrency/is it realistic for two TAs to be editing a student at once? When does data refresh for other TAs?
 
 
@@ -40,3 +40,15 @@ This site is meant to be used by CS 110 TAs to keep track of AI use in students.
     - [ ] PRESENT ON DEC 2
     
 
+## Info for presentation day
+- What you learned
+- What technologies were used
+- Demo if possible
+
+
+## Authentication Route
+### Signing Up
+When you get the extension/website (depending on how we end up doing it) you must sign in through OAuth (using your BYU email). An existing staff member adds you to the `staff` table with your email. When you attempt to sign in, it checks if the email you provided matches a row in `staff` and also checks that `staff.active` is true. This is so that old TAs (who still exist in `staff`) cannot rejoin after being removed. If that check returns true, it grants you a JWT that is saved in your browser and marks you as "authenticated", adds an entry for you in the supabase `auth.users` table, and updates `staff.user_id` to match `auth.users.id`. If your email is not approved, you are rejected and a row is NOT added to `auth.users`. 
+
+### CRUD Operations
+Every table has RLS activated, which denies any CRUD operations by default. RLS policies are what opens this up to conditionally grant access. Every time an API call is made to read or write the database, an RLS policy compares a UUID within your JWT against the ids in `auth.users`. 
