@@ -15,24 +15,29 @@ This site is meant to be used by CS 110 TAs to keep track of AI use in students.
 - Week of Nov 16-20: 
     - [x] Finish ERD
     - [x] Finish architecture diagram
-    - [ ] Add tables to database
+    - [x] Add tables to database
 - Week of Nov 23-27:
     - [ ] Be thankful
     - [ ] Create UI
     - [ ] Create TA/professor registration/login
-    - [ ] Create CRUD endpoints
+    - [ ] Create CRUD endpoints (most queries should filter by current semester)
         - [ ] Read all students
-        - [ ] Read one student by full name (is this a sufficient primary key?)
-            - [ ] Read AI entries (This and the "read all" pull in all the associated AI entries?)
+        - [ ] Read one student by full name
+            - [ ] Read all AI entries for one student
+        - [ ] Read all students for a given section
+        - [ ] Read all students for a given staff member
         - [ ] Create student
+        - [ ] Update student
         - [ ] Delete student
-        - [ ] Delete all students (reset each semester perhaps)
+        - [ ] Create semester
+        - [ ] Update semester
+        - [ ] Delete semester (only works if not associated with any students)
         - [ ] Create AI entry
         - [ ] Delete AI entry
         - [ ] Update AI entry
-        - [ ] Create TA/professor (different entities or same?)
-        - [ ] Update TA/professor
-        - [ ] Delete TA/professor
+        - [ ] Create staff member
+        - [ ] Update staff member
+        - [ ] Delete staff member (only works if not associated with any entries/actions, otherwise just update staff.active = False)
     - [ ] (OPTIONAL) Chrome extension that routes AI grades to the website automatically
 - Week of Nov 30 - Dec 4:
     - [ ] Do everything at once
