@@ -33,6 +33,7 @@ This site is meant to be used by CS 110 TAs to keep track of AI use in students.
         - [ ] Create TA/professor (different entities or same?)
         - [ ] Update TA/professor
         - [ ] Delete TA/professor
+    - [ ] (OPTIONAL) Chrome extension that routes AI grades to the website automatically
 - Week of Nov 30 - Dec 4:
     - [ ] Do everything at once
     - [ ] Seed data and test
