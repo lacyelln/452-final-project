@@ -14,13 +14,9 @@ import pg from "pg";
 // also under Project Settings -> General. Safe to commit.
 const PROJECT_REF = "djmphalanxapojkiuigf";
 
-// Direct connection. It is IPv6-only on most plans; if connecting fails, replace this
-// with the "Session pooler" host from the dashboard (Connect), e.g.
-// "aws-0-us-west-1.pooler.supabase.com". The username below adjusts automatically.
-const DB_HOST = `db.${PROJECT_REF}.supabase.co`;
+const DB_HOST = `aws-0-us-east-2.pooler.supabase.com`;
 
-// The pooler needs the project ref in the username; the direct connection does not.
-const DB_USER = DB_HOST.includes("pooler.supabase.com") ? `postgres.${PROJECT_REF}` : "postgres";
+const DB_USER = `postgres.${PROJECT_REF}`;
 
 // Order matters: everything refers to tables created in schema.sql, and policies use
 // a function defined in functions.sql. hooks.sql and triggers.sql only need the tables.
