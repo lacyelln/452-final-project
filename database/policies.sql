@@ -8,6 +8,16 @@
 
 begin;
 
+-- Table privileges. Postgres checks these BEFORE row level security: without a grant, a
+-- request fails with "permission denied for table ..." and never reaches the policies.
+-- Supabase doesn't reliably grant them on new tables, so grant explicitly. Only the
+-- signed-in role gets anything; `anon` gets nothing. (The staff block below narrows
+-- insert/update on that table to specific columns.)
+grant usage on schema public to authenticated;
+grant select, insert, update, delete on
+  public.semester, public.student, public.staff, public.entry, public.action
+  to authenticated;
+
 -- Each block drops the policy first so the file can be re-run (CREATE POLICY has no "if not exists").
 --
 -- Policies call helper functions as `(select public.fn())`. Wrapped in a select, Postgres

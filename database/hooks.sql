@@ -7,6 +7,7 @@
 -- One manual step is NOT in this file: after running it, enable the
 -- "Before User Created" auth hook in the Supabase dashboard
 -- (Authentication -> Hooks) and point it at public.reject_unlisted_signup.
+-- Done - Jack 11/24
 
 begin;
 

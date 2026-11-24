@@ -1,0 +1,44 @@
+[
+  {
+    "date": "11/18",
+    "who": "Jack",
+    "what": "ERD and Architecture Diagram",
+    "hours": 1.5
+  },
+  {
+    "date": "11/20",
+    "who": "Jack",
+    "what": "Discuss Architecture with Prof Reynolds",
+    "hours": 1
+  },
+  {
+    "date": "11/20",
+    "who": "Lacy",
+    "what": "Discuss Architecture with Prof Reynolds",
+    "hours": 1
+  },
+  {
+    "date": "11/23",
+    "who": "Jack",
+    "what": "Refined table schema, came up with RLS policies, triggers, and other helpful auth function",
+    "hours": 4.5
+  },
+  {
+    "date": "11/24",
+    "who": "Jack",
+    "what": "Made cs110.aiflagtracker@gmail.com account and setup Google SMTP for supabase to use to send magic links for sign up",
+    "hours": 3
+  },
+  {
+    "date": "",
+    "who": "",
+    "what": "",
+    "hours": null
+  },
+  {
+    "date": "",
+    "who": "",
+    "what": "",
+    "hours": null
+  }
+]
