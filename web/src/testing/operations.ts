@@ -76,6 +76,15 @@ const rawOperations: Operation[] = [
   },
   { label: 'Delete student', group: 'Students', fn: 'delete_student', params: [{ name: 'p_id', type: 'number' }] },
 
+  {
+    label: 'Read semesters (filter by any of these)',
+    group: 'Semesters',
+    fn: 'read_semesters',
+    params: [
+      { name: 'p_id', type: 'number', optional: true },
+      { name: 'p_name', type: 'text', optional: true },
+    ],
+  },
   { label: 'Create semester', group: 'Semesters', fn: 'create_semester', params: [{ name: 'p_name', type: 'text' }] },
   {
     label: 'Update semester',
