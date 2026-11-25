@@ -24,10 +24,10 @@ This site is meant to be used by CS 110 TAs to keep track of AI use in students.
     - [x] Set up Google SMPT for magic links
     - [ ] Create CRUD endpoints (most queries should filter by current semester)
         - [x] Read all students
-        - [ ] Read one student by full name
+        - [x] Read one student by full name
             - [ ] Read all AI entries for one student
-        - [ ] Read all students for a given section
-        - [ ] Read all students for a given staff member
+        - [x] Read all students for a given section
+        - [x] Read all students for a given staff member
         - [x] Create student
         - [ ] Update student
         - [ ] Delete student

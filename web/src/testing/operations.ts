@@ -66,6 +66,7 @@ const rawOperations: Operation[] = [
     fn: 'update_student',
     params: [
       { name: 'p_id', type: 'number' },
+      { name: 'p_semester_id', type: 'number', optional: true },
       { name: 'p_full_name', type: 'text', optional: true },
       { name: 'p_lecture_section', type: 'number', optional: true },
       { name: 'p_lab_section', type: 'number', optional: true },
