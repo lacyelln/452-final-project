@@ -12,6 +12,7 @@ Run these **in this order**. Each depends on the one before it.
 3. `hooks.sql`: `reject_unlisted_signup`, the function behind the Supabase Auth sign-up hook. Needs the tables.
 4. `triggers.sql`: the triggers that link a new login to its staff row and remove the login when staff are deactivated. Needs the tables.
 5. `policies.sql`: the RLS policies that let active staff use the tables. Needs `is_active_staff()`.
+6. `rpc/*.sql`: the API functions the app calls with `supabase.rpc(...)`, one file per operation. Need the tables and policies; independent of each other.
 
 A **hook** is a function the Supabase Auth service calls at a set point in its own flow. A **trigger** is a function Postgres runs automatically when a row in a table is inserted, updated or deleted.
 
@@ -21,7 +22,7 @@ Each file is wrapped in its own transaction, so a failure rolls back only that f
 
 ## How to run
 
-**Option A: script** (runs all five in order)
+**Option A: script** (runs every file above in order, including all of `rpc/`)
 
 ```
 npm install pg
@@ -32,7 +33,7 @@ node scripts/apply-schema.mjs
 - Run it from an interactive terminal. The script **prompts for the database password** with the input hidden, so it never goes into a file or your shell history. The password is the one you set when creating the project (reset it under Project Settings -> Database if you've forgotten it).
 - It connects directly to `db.<project-ref>.supabase.co`, which is IPv6-only on most plans. If you get a connection error, change `DB_HOST` in the script to the "Session pooler" host from the dashboard (Connect), e.g. `aws-0-<region>.pooler.supabase.com`.
 
-**Option B: Supabase SQL Editor.** Paste and run `schema.sql`, `functions.sql`, `hooks.sql`, `triggers.sql`, then `policies.sql`.
+**Option B: Supabase SQL Editor.** Paste and run `schema.sql`, `functions.sql`, `hooks.sql`, `triggers.sql`, then `policies.sql`, then each file in `rpc/`.
 
 ## Manual steps (not in the SQL files)
 

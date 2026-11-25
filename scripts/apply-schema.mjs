@@ -6,7 +6,7 @@
 
 // The database password is a secret, so the script asks for it in the terminal with the
 // input hidden. It is never written to a file or your shell history.
-import { readFileSync } from "node:fs";
+import { readFileSync, readdirSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import pg from "pg";
 
@@ -21,6 +21,11 @@ const DB_USER = `postgres.${PROJECT_REF}`;
 // Order matters: everything refers to tables created in schema.sql, and policies use
 // a function defined in functions.sql. hooks.sql and triggers.sql only need the tables.
 const FILES = ["schema.sql", "functions.sql", "hooks.sql", "triggers.sql", "policies.sql"];
+
+// Then every database/rpc/*.sql (one API function per file; they're independent of each
+// other, so alphabetical order is fine).
+const rpcDir = fileURLToPath(new URL("../database/rpc/", import.meta.url));
+const RPC_FILES = readdirSync(rpcDir).filter((f) => f.endsWith(".sql")).sort().map((f) => `rpc/${f}`);
 
 // --- hidden password prompt -----------------------------------------------
 function promptHidden(question) {
@@ -78,7 +83,7 @@ try {
   });
 
   await client.connect();
-  for (const name of FILES) {
+  for (const name of [...FILES, ...RPC_FILES]) {
     const sql = readFileSync(fileURLToPath(new URL(`../database/${name}`, import.meta.url)), "utf8");
     console.log(`Applying ${name}...`);
     await client.query(sql);

@@ -23,17 +23,20 @@ This site is meant to be used by CS 110 TAs to keep track of AI use in students.
     - [x] Manually insert the first staff member(s) (Jack and Lacy)
     - [x] Set up Google SMPT for magic links
     - [ ] Create CRUD endpoints (most queries should filter by current semester)
-        - [ ] Read all students
+        - [x] Read all students
         - [ ] Read one student by full name
             - [ ] Read all AI entries for one student
         - [ ] Read all students for a given section
         - [ ] Read all students for a given staff member
-        - [ ] Create student
+        - [x] Create student
         - [ ] Update student
         - [ ] Delete student
-        - [ ] Create semester
+        - [x] Create semester
         - [ ] Update semester
         - [ ] Delete semester (only works if not associated with any students)
+        - [ ] Create student action
+        - [ ] Update student action
+        - [ ] Delete student action
         - [ ] Create AI entry
         - [ ] Delete AI entry
         - [ ] Update AI entry

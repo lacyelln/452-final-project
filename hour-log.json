@@ -30,10 +30,10 @@
     "hours": 3
   },
   {
-    "date": "",
-    "who": "",
-    "what": "",
-    "hours": null
+    "date": "11/24",
+    "who": "Jack",
+    "what": "Implemented a few RPC functions for creating a semester, creating a student, and reading all students. Made testing UI on the web application to test RPC queries",
+    "hours": 2
   },
   {
     "date": "",
