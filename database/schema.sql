@@ -21,8 +21,7 @@ create table if not exists public.student (
   lecture_section bigint not null,
   lab_section     bigint not null,
   online          boolean not null default false,
-  email           varchar not null,
-  net_id          varchar not null,
+  net_id          varchar not null, -- BYU email is net_id || '@byu.edu', so it isn't stored
   unique (net_id, semester_id)
 );
 

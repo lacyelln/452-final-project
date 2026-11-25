@@ -21,24 +21,24 @@ export interface Operation {
 const semester: Param = { name: 'p_semester_id', type: 'number' }
 
 const rawOperations: Operation[] = [
-  { label: 'Read all students', group: 'Students', fn: 'read_students', params: [semester] },
   {
-    label: 'Read one student by full name',
+    label: 'Read students (filter by any of these)',
     group: 'Students',
-    fn: 'read_student_by_name',
-    params: [semester, { name: 'p_full_name', type: 'text' }],
+    fn: 'read_students',
+    params: [
+      { name: 'p_semester_id', type: 'number', optional: true },
+      { name: 'p_full_name', type: 'text', optional: true },
+      { name: 'p_lecture_section', type: 'number', optional: true },
+      { name: 'p_lab_section', type: 'number', optional: true },
+      { name: 'p_online', type: 'boolean', optional: true },
+      { name: 'p_net_id', type: 'text', optional: true },
+    ],
   },
   {
     label: 'Read all AI entries for one student',
     group: 'Entries',
     fn: 'read_entries_for_student',
     params: [{ name: 'p_student_id', type: 'number' }],
-  },
-  {
-    label: 'Read all students for a given section',
-    group: 'Students',
-    fn: 'read_students_by_section',
-    params: [semester, { name: 'p_section', type: 'number' }],
   },
   {
     label: 'Read all students for a given staff member',
@@ -56,7 +56,6 @@ const rawOperations: Operation[] = [
       { name: 'p_full_name', type: 'text' },
       { name: 'p_lecture_section', type: 'number' },
       { name: 'p_lab_section', type: 'number' },
-      { name: 'p_email', type: 'text' },
       { name: 'p_net_id', type: 'text' },
       { name: 'p_online', type: 'boolean', optional: true },
     ],
@@ -70,7 +69,6 @@ const rawOperations: Operation[] = [
       { name: 'p_full_name', type: 'text', optional: true },
       { name: 'p_lecture_section', type: 'number', optional: true },
       { name: 'p_lab_section', type: 'number', optional: true },
-      { name: 'p_email', type: 'text', optional: true },
       { name: 'p_net_id', type: 'text', optional: true },
       { name: 'p_online', type: 'boolean', optional: true },
     ],
