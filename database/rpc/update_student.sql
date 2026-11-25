@@ -7,6 +7,7 @@
 -- out (or send blank) is null, and `coalesce(new_value, current_value)` then keeps the
 -- current value. Every column except id can be changed, including semester_id.
 -- (The all-optional trick is fine for the SET list because the WHERE is always p_id.)
+-- Passing nothing but p_id is an error ("Nothing to update") instead of a silent no-op.
 --
 -- Conventions for everything in database/rpc/ are in database/rpc/README.md.
 -- Notes specific to this one:
@@ -42,6 +43,12 @@ as $$
 declare
   result public.student;
 begin
+  -- Count the fields that would really change something (blank text counts as not given).
+  if num_nonnulls(p_semester_id, nullif(trim(p_full_name), ''), p_lecture_section,
+                  p_lab_section, p_online, nullif(trim(p_net_id), '')) = 0 then
+    raise exception 'Nothing to update: pass at least one field besides p_id';
+  end if;
+
   update public.student set
     semester_id     = coalesce(p_semester_id, semester_id),
     full_name       = coalesce(nullif(trim(p_full_name), ''), full_name),
