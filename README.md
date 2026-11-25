@@ -27,14 +27,13 @@ This site is meant to be used by CS 110 TAs to keep track of AI use in students.
         - [x] Read one student by full name
             - [ ] Read all AI entries for one student
         - [x] Read all students for a given section
-        - [x] Read all students for a given staff member
         - [x] Create student
         - [x] Update student
         - [x] Delete student
         - [x] Create semester
-        - [ ] Read semesters
+        - [x] Read semesters
         - [x] Update semester
-        - [ ] Delete semester (only works if not associated with any students)
+        - [x] Delete semester (only works if not associated with any students)
         - [ ] Create student action
         - [ ] Update student action
         - [ ] Delete student action

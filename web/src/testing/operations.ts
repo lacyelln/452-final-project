@@ -40,12 +40,6 @@ const rawOperations: Operation[] = [
     fn: 'read_entries_for_student',
     params: [{ name: 'p_student_id', type: 'number' }],
   },
-  {
-    label: 'Read all students for a given staff member',
-    group: 'Students',
-    fn: 'read_students_by_staff',
-    params: [semester, { name: 'p_staff_id', type: 'number' }],
-  },
 
   {
     label: 'Create student',
