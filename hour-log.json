@@ -36,6 +36,12 @@
     "hours": 2
   },
   {
+    "date": "11/25",
+    "who": "Jack",
+    "what": "Added RPC functions for deleting a student, updating a semester, reading semesters, deleting semesters, creating an action, updating an action, and creating a staff member",
+    "hours": 2
+  },
+  {
     "date": "",
     "who": "",
     "what": "",
