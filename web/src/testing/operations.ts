@@ -107,6 +107,7 @@ const rawOperations: Operation[] = [
     fn: 'update_action',
     params: [
       { name: 'p_id', type: 'number' },
+      { name: 'p_student_id', type: 'number', optional: true },
       { name: 'p_description', type: 'text', optional: true },
       { name: 'p_date', type: 'date', optional: true },
     ],

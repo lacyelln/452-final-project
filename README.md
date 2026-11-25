@@ -35,15 +35,20 @@ This site is meant to be used by CS 110 TAs to keep track of AI use in students.
         - [x] Update semester
         - [x] Delete semester (only works if not associated with any students)
         - [x] Create student action
-        - [ ] Update student action
+        - [x] Update student action
+          - [ ] Test that you can't do this unless you were the staff member who made it
         - [ ] Delete student action
+          - [ ] Test that you can't do this unless you were the staff member who made it
         - [ ] Create AI entry
         - [ ] Delete AI entry
+          - [ ] Test that you can't do this unless you were the staff member who made it
         - [ ] Update AI entry
+          - [ ] Test that you can't do this unless you were the staff member who made it
         - [ ] Create staff member
         - [ ] Update staff member
         - [ ] Delete staff member (only works if not associated with any entries/actions, otherwise just update staff.active = False)
     - [ ] (OPTIONAL) Chrome extension that routes AI grades to the website automatically
+    - [ ] (OPTIONAL) Add tables to define allowable homework assignments names (so you don't get nonmatching entries like 'Homework 3b' vs 'HW3B')
 - Week of Nov 30 - Dec 4:
     - [ ] Do everything at once
     - [ ] Seed data and test
