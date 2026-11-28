@@ -22,10 +22,11 @@ This site is meant to be used by CS 110 TAs to keep track of AI use in students.
     - [x] Add the manual stuff from the .sql scripts
     - [x] Manually insert the first staff member(s) (Jack and Lacy)
     - [x] Set up Google SMPT for magic links
+    - [x] Set up main page to show results for students and assignments 
     - [ ] Create CRUD endpoints (most queries should filter by current semester)
         - [x] Read all students
         - [x] Read one student by full name
-            - [ ] Read all AI entries for one student
+            - [x] Read all AI entries for one student
         - [x] Read all students for a given section
         - [x] Create student
         - [x] Update student
