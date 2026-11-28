@@ -26,7 +26,7 @@ This site is meant to be used by CS 110 TAs to keep track of AI use in students.
     - [ ] Create CRUD endpoints (most queries should filter by current semester)
         - [x] Read all students
         - [x] Read one student by full name
-            - [x] Read all AI entries for one student
+            - [] Read all AI entries for one student
         - [x] Read all students for a given section
         - [x] Create student
         - [x] Update student
@@ -40,10 +40,10 @@ This site is meant to be used by CS 110 TAs to keep track of AI use in students.
           - [x] Test that you can't do this unless you were the staff member who made it
         - [ ] Delete student action
           - [ ] Test that you can't do this unless you were the staff member who made it
-        - [ ] Create AI entry
-        - [ ] Delete AI entry
+        - [x] Create AI entry
+        - [x] Delete AI entry
           - [ ] Test that you can't do this unless you were the staff member who made it
-        - [ ] Update AI entry
+        - [x] Update AI entry
           - [ ] Test that you can't do this unless you were the staff member who made it
         - [x] Create staff member
         - [ ] Update staff member
