@@ -18,7 +18,7 @@ This site is meant to be used by CS 110 TAs to keep track of AI use in students.
     - [x] Add tables to database
 - Week of Nov 23-27:
     - [🦃] Be thankful
-    - [ ] Create UI
+    - [x] Create UI
     - [x] Add the manual stuff from the .sql scripts
     - [x] Manually insert the first staff member(s) (Jack and Lacy)
     - [x] Set up Google SMPT for magic links

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { supabase } from '../lib/supabase'
 import Dropdown from './Dropdown'
+import EntryPicker from './EntryPicker'
 import { buildArgs, operations } from '../testing/operations'
 
 // Developer tool: pick one of the API functions in database/rpc/, fill in its arguments,
@@ -12,8 +13,11 @@ export default function Testing() {
   const [sent, setSent] = useState<string | null>(null)
   const [result, setResult] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
+  const [pickerVersion, setPickerVersion] = useState(0)
 
   const op = operations[index]
+  const isEntryOperation = ['create_entry', 'update_entry', 'delete_entry'].includes(op.fn)
+  const needsEntry = op.fn === 'update_entry' || op.fn === 'delete_entry'
 
   function choose(i: number) {
     setIndex(i)
@@ -26,6 +30,11 @@ export default function Testing() {
   async function run() {
     setResult(null)
     setError(null)
+    if (isEntryOperation && !(needsEntry ? values.p_id : values.p_student_id)) {
+      setSent(null)
+      setError(needsEntry ? 'Choose a student and an AI-use entry.' : 'Choose a student.')
+      return
+    }
     const built = buildArgs(op, values)
     if ('error' in built) {
       setSent(null)
@@ -48,6 +57,10 @@ export default function Testing() {
       )
     } else {
       setResult(JSON.stringify(data, null, 2) ?? 'null')
+      if (isEntryOperation) {
+        setValues({})
+        setPickerVersion((version) => version + 1)
+      }
     }
   }
 
@@ -65,7 +78,20 @@ export default function Testing() {
 
       <p className="muted fn-name">{op.fn}({op.params.map((p) => p.name).join(', ')})</p>
 
-      {op.params.map((p) => (
+      {isEntryOperation && (
+        <EntryPicker
+          key={`${op.fn}-${pickerVersion}`}
+          needsEntry={needsEntry}
+          onSelect={(studentId, entryId) => {
+            setValues((current) => ({
+              ...current,
+              ...(needsEntry ? { p_id: entryId } : { p_student_id: studentId }),
+            }))
+          }}
+        />
+      )}
+
+      {op.params.filter((p) => !isEntryOperation || (p.name !== 'p_student_id' && p.name !== 'p_id')).map((p) => (
         <label className="field" key={`${op.fn}.${p.name}`}>
           <span>{p.name}{p.optional ? ' (optional)' : ''}</span>
           {p.type === 'boolean' ? (

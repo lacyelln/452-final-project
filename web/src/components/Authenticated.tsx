@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useAuth } from '../auth/AuthContext'
+import Home from './Home'
 import Testing from './Testing'
 
 type Tab = 'home' | 'testing'
@@ -11,17 +12,29 @@ export default function Authenticated() {
 
   return (
     <>
-      <div className="whoami">
-        <span>Signed in as <strong>{session?.user.email}</strong></span>
-        <button className="btn btn-secondary btn-small" onClick={signOut}>Sign out</button>
-      </div>
+      <header className="site-header">
+        <div className="site-header-inner">
+          <div className="site-brand">
+            <h1>AI Use Tracker</h1>
+            <p>CS 110 TA tools</p>
+          </div>
+          <div className="site-account">
+            <span>Signed in as <strong>{session?.user.email}</strong></span>
+            <button className="btn btn-secondary btn-small" onClick={signOut}>Sign out</button>
+          </div>
+        </div>
+      </header>
 
-      <nav className="tabs">
-        <button className={tab === 'home' ? 'tab active' : 'tab'} onClick={() => setTab('home')}>Home</button>
-        <button className={tab === 'testing' ? 'tab active' : 'tab'} onClick={() => setTab('testing')}>Testing</button>
-      </nav>
+      <main className="app-main">
+        <nav className="tabs" aria-label="Main navigation">
+          <button className={tab === 'home' ? 'tab active' : 'tab'} onClick={() => setTab('home')}>Home</button>
+          <button className={tab === 'testing' ? 'tab active' : 'tab'} onClick={() => setTab('testing')}>Testing</button>
+        </nav>
 
-      {tab === 'home' ? <p className="muted">Nothing here yet.</p> : <Testing />}
+        <section className="app-panel">
+          {tab === 'home' ? <Home /> : <Testing />}
+        </section>
+      </main>
     </>
   )
 }

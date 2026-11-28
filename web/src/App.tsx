@@ -7,16 +7,20 @@ export default function App() {
   const { session, loading } = useAuth()
 
   return (
-    <main className="page">
-      <div className="card">
-        <header className="card-header">
-          <h1>AI Use Tracker</h1>
-          <p>CS 110 TA tools</p>
-        </header>
-        <div className="card-body">
-          {loading ? <p className="muted">Loading...</p> : session ? <Authenticated /> : <Unauthenticated />}
+    <main className={session ? 'app-shell' : 'page'}>
+      {session ? (
+        <Authenticated />
+      ) : (
+        <div className="card">
+          <header className="card-header">
+            <h1>AI Use Tracker</h1>
+            <p>CS 110 TA tools</p>
+          </header>
+          <div className="card-body">
+            {loading ? <p className="muted">Loading...</p> : <Unauthenticated />}
+          </div>
         </div>
-      </div>
+      )}
     </main>
   )
 }
